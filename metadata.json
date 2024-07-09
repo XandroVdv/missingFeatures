@@ -1,0 +1,7 @@
+{
+    "name": "missingFeatures",
+    "creator": "Zaqus",
+    "description": "A plugin that adds missing features to the game.",
+    "version": "1.0.0",
+    "entry": "index.js"
+  }
