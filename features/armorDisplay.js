@@ -36,17 +36,8 @@ function updateArmor() {
                 inventory.getStackInSlot(36)  
             ];
         } catch (e) {
-            ChatLib.chat(`Error fetching armor: ${e}`);
+            console.log(`Error fetching armor: ${e}`);
         }
-    }
-}
-
-export function setArmorSide(side) {
-    if ([1, 2].includes(side)) {
-        armorSide = side;
-        ChatLib.chat(`&6[Zaqus] &7Armor side set to &r&e${side}.`);
-    } else {
-        ChatLib.chat(`&6[Zaqus] &7Invalid side. Please use a number between &r&e1 and 2.`);
     }
 }
 
@@ -55,5 +46,5 @@ register("renderOverlay", drawArmor);
 
 export function toggleArmorDisplay() {
     displayArmor = !displayArmor;
-    ChatLib.chat(`&6[Zaqus] &7Armor display is now &r&e${displayArmor ? "enabled" : "disabled"}.`);
+    ChatLib.chat(`&6[MissingFeatures] &7Armor display is now &r&e${displayArmor ? "enabled" : "disabled"}.`);
 }

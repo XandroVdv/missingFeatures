@@ -57,9 +57,9 @@ function updateInventory() {
 export function setInventoryCorner(corner) {
     if ([1, 2, 3, 4].includes(corner)) {
         inventoryCorner = corner;
-        ChatLib.chat(`&6[Zaqus] &7Inventory corner set to &r&e${corner}.`);
+        ChatLib.chat(`&6[MissingFeatures] &7Inventory corner set to &r&e${corner}.`);
     } else {
-        ChatLib.chat(`&6[Zaqus] &7Invalid corner. Please use a number between &r&e1 and 4.`);
+        ChatLib.chat(`&6[MissingFeatures] &7Invalid corner. Please use a number between &r&e1 and 4.`);
     }
 }
 
@@ -68,5 +68,5 @@ register("renderOverlay", drawInventory);
 
 export function toggleInventoryDisplay() {
     displayInventory = !displayInventory;
-    ChatLib.chat(`&6[Zaqus] &7Inventory display is now &r&e${displayInventory ? "enabled" : "disabled"}.`);
+    ChatLib.chat(`&6[MissingFeatures] &7Inventory display is now &r&e${displayInventory ? "enabled" : "disabled"}.`);
 }

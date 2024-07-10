@@ -9,6 +9,8 @@ export default function(args) {
     ChatLib.chat("&4Golden Goblin commands:");
     ChatLib.chat("&r&e/mf toggleGoldenGoblinMessage &7- Toggle the Golden Goblin")
     ChatLib.chat("&4Help command:");
+    ChatLib.chat("&r&e/mf togglePristineMessage &7- Toggle Pristine spam.");
+    ChatLib.chat("&r&e/mf toggle &7- Toggle Pristine spam.");
     ChatLib.chat("&r&e/mf help &7- Display this help message.");
     ChatLib.chat("&6[---------------------------------------------------]");
 }

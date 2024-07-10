@@ -5,11 +5,13 @@ const commands = {
     setInventoryCorner: require('./commands/setInventoryCorner').default,
     toggleArmor: require('./commands/toggleArmor').default,
     toggleGoldenGoblinMessage: require('./commands/toggleGoldenGoblinMessage').default,
+    togglePristineMessage: require('./commands/togglePristineMessage').default,
     h: require('./commands/help').default,
     ti: require('./commands/toggleInventory').default,
     sic: require('./commands/setInventoryCorner').default,
     ta: require('./commands/toggleArmor').default,
     tggmsg: require('./commands/toggleGoldenGoblinMessage').default,
+    tpm: require('./commands/togglePristineMessage').default,
 };
 
 export function executeCommand(command, args) {
