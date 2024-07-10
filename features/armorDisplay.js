@@ -4,7 +4,7 @@ let displayArmor = true;
 function drawArmor() {
     if (displayArmor && armorToDraw != null) {
         const screenHeight = Renderer.screen.getHeight();
-        const armorHeight = 4 * 20; // Each armor slot is 20 pixels high
+        const armorHeight = 4 * 20;
 
         let yOffset = (screenHeight - armorHeight) / 2;
 
@@ -30,10 +30,10 @@ function updateArmor() {
         try {
             let inventory = Player.getInventory();
             armorToDraw = [
-                inventory.getStackInSlot(39), // Head (slot 39 in player inventory)
-                inventory.getStackInSlot(38), // Chest (slot 38 in player inventory)
-                inventory.getStackInSlot(37), // Legs (slot 37 in player inventory)
-                inventory.getStackInSlot(36)  // Feet (slot 36 in player inventory)
+                inventory.getStackInSlot(39),
+                inventory.getStackInSlot(38), 
+                inventory.getStackInSlot(37),
+                inventory.getStackInSlot(36)  
             ];
         } catch (e) {
             ChatLib.chat(`Error fetching armor: ${e}`);
@@ -50,11 +50,9 @@ export function setArmorSide(side) {
     }
 }
 
-// Register the update and render functions
 register("step", updateArmor).setDelay(1);
 register("renderOverlay", drawArmor);
 
-// Export the toggle function
 export function toggleArmorDisplay() {
     displayArmor = !displayArmor;
     ChatLib.chat(`&6[Zaqus] &7Armor display is now &r&e${displayArmor ? "enabled" : "disabled"}.`);

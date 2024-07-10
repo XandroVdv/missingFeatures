@@ -1,9 +1,9 @@
 let inventoryToDraw = null;
-let displayInventory = false;  // This will track whether the inventory display is on or off
-let inventoryCorner = 1;  // Default corner position (1 = top left, 2 = top right, 3 = bottom left, 4 = bottom right)
+let displayInventory = false; 
+let inventoryCorner = 1;
 
 function drawInventory() {
-    if (displayInventory && inventoryToDraw !== null) {  // Check if displayInventory is true
+    if (displayInventory && inventoryToDraw !== null) {
         let xOffset, yOffset;
         switch (inventoryCorner) {
             case 1:
@@ -48,14 +48,12 @@ function drawInventory() {
     }
 }
 
-// Function to update the inventory
 function updateInventory() {
     if (displayInventory) {
         inventoryToDraw = Player.getInventory().getItems();
     }
 }
 
-// Function to set the inventory corner
 export function setInventoryCorner(corner) {
     if ([1, 2, 3, 4].includes(corner)) {
         inventoryCorner = corner;
@@ -65,11 +63,9 @@ export function setInventoryCorner(corner) {
     }
 }
 
-// Register the update and render functions
 register("step", updateInventory);
 register("renderOverlay", drawInventory);
 
-// Export the toggle function
 export function toggleInventoryDisplay() {
     displayInventory = !displayInventory;
     ChatLib.chat(`&6[Zaqus] &7Inventory display is now &r&e${displayInventory ? "enabled" : "disabled"}.`);
