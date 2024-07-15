@@ -15,6 +15,7 @@ register("chat", (event) => {
 
     if (displayAvgPristine) {
         if (message.includes("PRISTINE!") && message.includes("You found")) {
+            console.log("proc message detected");
             let match = message.match(/You found [^x]+x(\d+)/);
             if (match && match[1]) {
                 let quantity = parseInt(match[1]);
@@ -56,12 +57,12 @@ function resetPristineProcs() {
 
 // Function to reset the timeout
 function resetPristineTimeout() {
-    if (pristineTimeout) {
-        clearTimeout(pristineTimeout);
-    }
-    pristineTimeout = setTimeout(() => {
+
+    pristineTimeout = TIMEOUT_DURATION;
+    setTimeout(() => {
         resetPristineProcs();
         displayAvgPristine = false;
         ChatLib.chat("&6[MissingFeatures] &7No pristine procs detected for 5 minutes. Average pristine display is now &r&edisabled&r&7.");
-    }, TIMEOUT_DURATION);
+    }, pristineTimeout);
+    console.log("Resetting timeout to " + pristineTimeout);
 }
