@@ -4,7 +4,7 @@ let pristineProcs = [];
 let totalProcs = 0;
 let display = new Display();
 let pristineTimeout = null;
-const TIMEOUT_DURATION = 30 * 1000; // 30 seconds in milliseconds
+const TIMEOUT_DURATION = 5 * 60 *  1000; // 5 minutes in milliseconds
 
 register("chat", (event) => {
     let message = ChatLib.getChatMessage(event);
