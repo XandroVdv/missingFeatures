@@ -1,4 +1,3 @@
-import toggleAveragePristine from './commands/toggleAveragePristine';
 
 const commands = {
     help: require('./commands/help').default,

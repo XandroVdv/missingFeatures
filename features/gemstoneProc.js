@@ -4,7 +4,7 @@ let pristineProcs = [];
 let totalProcs = 0;
 let display = new Display();
 let pristineTimeout = null;
-const TIMEOUT_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
+const TIMEOUT_DURATION = 30 * 1000; // 30 seconds in milliseconds
 
 register("chat", (event) => {
     let message = ChatLib.getChatMessage(event);
@@ -15,7 +15,6 @@ register("chat", (event) => {
 
     if (displayAvgPristine) {
         if (message.includes("PRISTINE!") && message.includes("You found")) {
-            console.log("proc message detected");
             let match = message.match(/You found [^x]+x(\d+)/);
             if (match && match[1]) {
                 let quantity = parseInt(match[1]);
@@ -27,7 +26,6 @@ register("chat", (event) => {
                 display.setRenderLoc(Renderer.screen.getWidth() - 140, Renderer.screen.getHeight() - 20); // Set position to bottom right
                 display.setShouldRender(true);
 
-                // Reset the timeout each time a pristine proc message is detected
                 resetPristineTimeout();
             }
         }
@@ -48,21 +46,25 @@ export function toggleAvgPristine() {
     }
 }
 
-// Function to reset the pristine proc data and hide the display
 function resetPristineProcs() {
     pristineProcs = [];
     totalProcs = 0;
     display.setShouldRender(false);
 }
 
-// Function to reset the timeout
 function resetPristineTimeout() {
+    if (pristineTimeout !== null) {
+        pristineTimeout.cancel();
+        pristineTimeout = null;
+    }
 
-    pristineTimeout = TIMEOUT_DURATION;
-    setTimeout(() => {
-        resetPristineProcs();
-        displayAvgPristine = false;
-        ChatLib.chat("&6[MissingFeatures] &7No pristine procs detected for 5 minutes. Average pristine display is now &r&edisabled&r&7.");
-    }, pristineTimeout);
-    console.log("Resetting timeout to " + pristineTimeout);
+    pristineTimeout = new java.util.Timer();
+    pristineTimeout.schedule(new java.util.TimerTask({
+        run: function() {
+            resetPristineProcs();
+            displayAvgPristine = false;
+            ChatLib.chat("&6[MissingFeatures] &7No pristine procs detected for 5 minutes. Average pristine display is now &r&edisabled&r&7.");
+            pristineTimeout = null;
+        }
+    }), TIMEOUT_DURATION);
 }
