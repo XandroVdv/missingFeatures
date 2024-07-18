@@ -1,5 +1,5 @@
 let armorToDraw = [null, null, null, null];
-let displayArmor = true;
+let displayArmor = false;
 
 function drawArmor() {
     if (displayArmor && armorToDraw != null) {

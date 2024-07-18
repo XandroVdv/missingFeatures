@@ -1,5 +1,5 @@
 let displayProcMessage = true;
-let displayAvgPristine = false;
+let displayAvgPristine = true;
 let pristineProcs = [];
 let totalProcs = 0;
 let display = new Display();
