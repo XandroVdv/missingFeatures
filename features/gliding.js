@@ -7,25 +7,19 @@ function isMiningGemstone() {
 
     // Check if the player is looking at a block
     if (lookingAt === undefined || lookingAt === null) {
-        console.log("Not looking at a block");
         return false;
     }
 
     // Check if the block type is defined
     if (lookingAt.type === undefined || lookingAt.type.name === undefined) {
-        console.log("Block type or name is undefined");
         return false;
     }
 
     // Get the block type
     let block = lookingAt.type.name;
 
-    // Log the block type for debugging purposes
-    console.log(block);
-
     // Check if the block type string contains "glass" and the player is breaking the block
     if (block.toLowerCase().includes("glass") && isBreaking) {
-        console.log(isBreaking);
         return true;
     }
 
@@ -51,12 +45,7 @@ register("tick", () => {
 register("playerInteract", (event) => {
     if (event.action == "LEFT_CLICK_BLOCK") {
         isBreaking = true;
-    }
-});
-
-// Event to set `isBreaking` to false when the player stops breaking a block
-register("playerInteract", (event) => {
-    if (event.action == "RIGHT_CLICK_AIR" || event.action == "RIGHT_CLICK_BLOCK" || event.action == "LEFT_CLICK_AIR") {
+    } else if (event.action == "LEFT_CLICK_AIR") {
         isBreaking = false;
     }
 });
