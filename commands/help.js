@@ -7,6 +7,7 @@ export default function(args) {
     ChatLib.chat("&r&e/mf toggleGoldenGoblinMessage &7- Toggle the Golden Goblin")
     ChatLib.chat("&r&e/mf togglePristineMessage &7- Toggle Pristine spam.");
     ChatLib.chat("&r&e/mf toggleAvgPristine &7- Toggle the average pristine display.");
+    ChatLib.chat("&r&e/mf toggleBalMessage &7- Toggle the fullscreen bal message.");
     ChatLib.chat("&r&e/mf help &7- Display this help message.");
     ChatLib.chat("&6[---------------------------------------------------]");
 }

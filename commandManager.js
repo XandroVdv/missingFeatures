@@ -1,3 +1,4 @@
+
 const commands = {
     help: require('./commands/help').default,
     toggleInventory: require('./commands/toggleInventory').default,
@@ -7,6 +8,7 @@ const commands = {
     togglePristineMessage: require('./commands/togglePristineMessage').default,
     toggleAvgPristine: require('./commands/toggleAveragePristine').default,
     toggleGliding: require('./commands/toggleGliding').default,
+    toggleBalMessage: require('./commands/toggleBalMessage').default,
     h: require('./commands/help').default,
     ti: require('./commands/toggleInventory').default,
     sic: require('./commands/setInventoryCorner').default,
