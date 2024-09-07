@@ -1,3 +1,4 @@
+import toggleComboCounter from './commands/toggleComboCounter';
 
 const commands = {
     help: require('./commands/help').default,
@@ -9,6 +10,7 @@ const commands = {
     toggleAvgPristine: require('./commands/toggleAveragePristine').default,
     toggleGliding: require('./commands/toggleGliding').default,
     toggleBalMessage: require('./commands/toggleBalMessage').default,
+    toggleComboCounter: require('./commands/toggleComboCounter').default,
     h: require('./commands/help').default,
     ti: require('./commands/toggleInventory').default,
     sic: require('./commands/setInventoryCorner').default,
@@ -16,7 +18,9 @@ const commands = {
     tggmsg: require('./commands/toggleGoldenGoblinMessage').default,
     tpm: require('./commands/togglePristineMessage').default,
     tap: require('./commands/toggleAveragePristine').default,
-    tg: require('./commands/toggleGliding').default
+    tg: require('./commands/toggleGliding').default,
+    tbm: require('./commands/toggleBalMessage').default,
+    tcc: toggleComboCounter
 };
 
 export function executeCommand(command, args) {
